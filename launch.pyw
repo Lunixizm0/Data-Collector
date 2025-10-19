@@ -5,8 +5,8 @@ import os
 import ctypes
 
 # Scraper'ları import et
-import ipdata
-import msinfo
+import utils.ipdata as ipdata
+import utils.msinfo as msinfo
 
 def is_admin():
     """Yönetici yetkilerini kontrol et"""
