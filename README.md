@@ -40,17 +40,13 @@ A Python-based system information collection tool that gathers various data abou
 
 - Windows Operating System
 - Python 
-- Required Python packages:
-  - playwright
-  - py7zr
-  - ctypes
 
 ## Installation
 
 1. Clone the repository
 2. Install required Python packages:
 ```bash
-pip install playwright py7zr
+pip install -r requirements.txt
 ```
 3. Install Playwright browsers:
 ```bash
@@ -58,6 +54,11 @@ python -m playwright install chromium
 ```
 
 ## Usage
+
+Run the server:
+```bash
+python server/server.py
+```
 
 Run the launcher script:
 ```bash
