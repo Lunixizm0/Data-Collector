@@ -1,2 +1,10 @@
 py7zr
 playwright
+requests
+pycryptodome
+pyinstaller
+customtkinter
+Crypto
+packaging
+tk
+wmi
