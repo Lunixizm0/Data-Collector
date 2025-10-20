@@ -84,10 +84,12 @@ The final encrypted archive will be created in the temp directory with the namin
 
 By default, the 7z archive password is set to be the same as the archive filename (e.g., if the file is named `lunix_14_30_45.7z`, the password should be `lunix_14_30_45.7z`). This can be modified in the `launch.pyw` script by changing the password parameter in the `py7zr.SevenZipFile` call.
 
+Afterwards, we send everything to (`server/server.py`) and then remove the archive and folder.
+
 ## TODO
 
 ### TODO NOTE:
-  - Currently, file upload server are being performed on the server opened by the attacker (/server/server.py). We will switch this to vis.ee service later.
+  - Currently, file upload server are being performed on the server opened by the attacker (`server/server.py`). We will switch this to vis.ee service later.
 
 #### File Sharing Implementation
   - Integrate with file sharing service (vis.ee)
@@ -103,9 +105,7 @@ By default, the 7z archive password is set to be the same as the archive filenam
   - Develop automated retrieval system
   - Create auto message decryption functionality
   - Implement automatic URL extraction
-  - Add secure file download handling
-  - Verify file integrity after download
-  - Handle various error scenarios
+  - Add file download
 
 ## License
 
