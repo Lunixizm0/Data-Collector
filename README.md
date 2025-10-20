@@ -86,20 +86,20 @@ By default, the 7z archive password is set to be the same as the archive filenam
 
 ## TODO
 
-### File Sharing Implementation
+### TODO NOTE:
+  - Currently, file upload server are being performed on the server opened by the attacker (/server/server.py). We will switch this to vis.ee service later.
+
+#### File Sharing Implementation
   - Integrate with file sharing service (vis.ee)
   - Implement automatic file upload functionality
-  - Handle upload responses and error cases
-  - Manage file expiration settings
-  - Add retry mechanism for failed uploads
 
-### Communication Channel
+#### Communication Channel
   - Implement Discord webhook integration
   - Create secure message encryption system
   - Format and structure webhook messages
   - Handle webhook delivery confirmation
 
-### Retrieval Client
+#### Retrieval Client
   - Develop automated retrieval system
   - Create auto message decryption functionality
   - Implement automatic URL extraction
@@ -109,4 +109,4 @@ By default, the 7z archive password is set to be the same as the archive filenam
 
 ## License
 
-See the [LICENSE](LICENSE) file for details.
+This project uses UNLICENSED LICENSE [LICENSE](LICENSE) so everyone can feel free.
