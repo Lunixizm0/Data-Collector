@@ -32,15 +32,24 @@ def setup_logging(clear_previous=True):
     # Log dosyasını açmadan önce eski loglaru sil
     log_file_path = os.path.join(log_dir, "antivirus.log")
 
-    # logging yapılandırması
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format="%(asctime)s [%(levelname)s] %(message)s",
-        handlers=[
-            logging.FileHandler(log_file_path, mode='a', encoding='utf-8'),
-            logging.StreamHandler()
-        ]
-    )
+    # Logger'ı temizle (önceki handler'ları kaldır)
+    logger = logging.getLogger()
+    logger.handlers.clear()
+    logger.setLevel(logging.DEBUG)
+
+    # Log dosyasına her şeyi yaz (DEBUG ve üstü)
+    file_handler = logging.FileHandler(log_file_path, mode='a', encoding='utf-8')
+    file_handler.setLevel(logging.DEBUG)
+    file_formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+    file_handler.setFormatter(file_formatter)
+    logger.addHandler(file_handler)
+
+    # Terminale sadece ERROR ve CRITICAL seviyelerini yaz
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.ERROR)
+    console_formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+    console_handler.setFormatter(console_formatter)
+    logger.addHandler(console_handler)
 
     logging.info("Günlük kaydı başlatıldı" if clear_previous else "Günlük kaydı başlatıldı.")
     return log_dir
@@ -243,9 +252,6 @@ def main(folders_to_scan=None, clear_logs=True, max_dirs_per_root=None):
 
         if all_found:
             logging.info("Antivirüs yürütülebilir dosyaları tespit edildi.")
-            print("Antivirüs yürütülebilir dosyaları bulundu:\n")
-            for av_name, path in all_found.items():
-                print(f"{av_name}: {path}")
         else:
             logging.warning("Hiçbir antivirüs yürütülebilir dosyası bulunamadı.")
             print("Hiçbir antivirüs yürütülebilir dosyası bulunamadı.")

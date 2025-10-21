@@ -164,7 +164,6 @@ def main():
         error_output = error_message.replace("\n\n", r" \n\n ").replace("\n", r" \n ").replace(r"\n", r"  \n ")
         with open(output_file, "a", encoding="utf-8") as f:
             f.write(error_output.strip())
-        sys.exit()
 
 if __name__ == "__main__":
     main()
