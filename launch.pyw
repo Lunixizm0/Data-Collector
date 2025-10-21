@@ -141,12 +141,6 @@ def force_delete_file(file_path, max_attempts=5):
             if not os.path.exists(file_path):
                 return True
             
-            # Dosya özniteliklerini değiştir
-            try:
-                os.chmod(file_path, 0o777)
-            except:
-                pass
-            
             # Normal silme
             os.remove(file_path)
             return True
