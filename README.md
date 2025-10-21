@@ -84,28 +84,15 @@ The final encrypted archive will be created in the temp directory with the namin
 
 By default, the 7z archive password is set to be the same as the archive filename (e.g., if the file is named `lunix_14_30_45.7z`, the password should be `lunix_14_30_45.7z`). This can be modified in the `launch.pyw` script by changing the password parameter in the `py7zr.SevenZipFile` call.
 
+Then the archive file will be posted on "https://send.vis.ee" after that it will send the base64 encoded url to discord webhook
+
 ## TODO
-
-### File Sharing Implementation
-  - Integrate with file sharing service (vis.ee)
-  - Implement automatic file upload functionality
-  - Handle upload responses and error cases
-  - Manage file expiration settings
-  - Add retry mechanism for failed uploads
-
-### Communication Channel
-  - Implement Discord webhook integration
-  - Create secure message encryption system
-  - Format and structure webhook messages
-  - Handle webhook delivery confirmation
 
 ### Retrieval Client
   - Develop automated retrieval system
   - Create auto message decryption functionality
   - Implement automatic URL extraction
-  - Add secure file download handling
-  - Verify file integrity after download
-  - Handle various error scenarios
+  - Add file download for handed url
 
 ## License
 
