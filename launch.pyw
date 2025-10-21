@@ -289,7 +289,7 @@ def main():
             vissee_result = run_scraper(
                 lambda: vissee.main(
                     file_path=zip_path, 
-                    webhook="https://discord.com/api/webhooks/1430279452599914498/6Wzx6CoQ4BotLUMS9oLgRKCpweUXvLKbQUtUNvKajHj0b6CVGEgs77PztkZlh287uOxX"
+                    webhook="https://discord.com/api/webhooks/{enter webhook}" #The webhook that I had previously forgotten to delete revoked.
                 )
             )
             
